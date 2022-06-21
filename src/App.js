@@ -9,9 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function App() {
   return (
-    <div>
+    <div className='container'>
         <Navbar/>
-        <br/>
         <Routes>
           <Route path='/' element={<AlbumsList/>}/>
           <Route path='/edit/:id' element={<EditAlbum/>}/>
