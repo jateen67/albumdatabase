@@ -19,10 +19,10 @@ connection.once('open', () => {
 })
 
 const albumsRouter = require('./routes/albums')
-const usersRouter = require('./routes/users')
+const artistsRouter = require('./routes/artists')
 
 app.use('/albums', albumsRouter)
-app.use('/users', usersRouter)
+app.use('/artists', artistsRouter)
 
 app.listen(port, () => {
     console.log(`server running on port ${port}`)
