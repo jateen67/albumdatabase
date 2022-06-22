@@ -31,22 +31,20 @@ export default function AddAlbum() {
     const addAlbumClicked = (e) => {
         e.preventDefault()
         const album = {title, artist, description, duration, date}
-        axios.post('http://localhost:5000/albums/add', album)
+        axios.post(`http://localhost:5000/albums/update/${window.location.pathname.substring(6)}`, album)
         .then(res => console.log(res.data))
-        console.log(description)
         setTitle('')
         setArtist('')
         setDescription('')
         setDuration('')
     }
     useEffect(() => {
-        axios.get('http://localhost:5000/albums')
+        axios.get(`http://localhost:5000/albums/${window.location.pathname.substring(6)}`)
         .then(res => {
             setTitle(res.data.title)
             setArtist(res.data.artist)
             setDescription(res.data.description)
             setDuration(res.data.duration)
-            setDate(new Date(res.data.date))
         })
         .catch(err => console.log(err))
 
@@ -56,6 +54,7 @@ export default function AddAlbum() {
                 setArtists(res.data.map(artist => artist.artist))
             }
         })
+        window.location.pathname.substring(6)
     }, [])
 
     return (

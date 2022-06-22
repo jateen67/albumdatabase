@@ -33,7 +33,6 @@ export default function AddAlbum() {
         const album = {title, artist, description, duration, date}
         axios.post('http://localhost:5000/albums/add', album)
         .then(res => console.log(res.data))
-        console.log(description)
         setTitle('')
         setArtist('')
         setDescription('')
