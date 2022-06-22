@@ -1,6 +1,7 @@
-import React, { useState, Component, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import axios from 'axios'
 
 export default function AddAlbum() {
     //all the state based on hte album model
@@ -30,12 +31,18 @@ export default function AddAlbum() {
     const addAlbumClicked = (e) => {
         e.preventDefault()
         const album = {title, artist, description, duration, date}
-        console.log(album)
+        axios.post('http://localhost:5000/albums/add', album)
+        .then(res => console.log(res.data))
         window.location = '/'
     }
     useEffect(() => {
-        setArtist('test artist')
-        setArtists(['test artist'])
+        axios.get('http://localhost:5000/artists')
+        .then(res => {
+            if (res.data) {
+                setArtist(res.data[0].artist)
+                setArtists(res.data.map(artist => artist.artist))
+            }
+        })
     }, [])
 
     return (

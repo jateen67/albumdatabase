@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 export default function AddArtist() {
         //all the state based on hte album model
         const [artist, setArtist] = useState('')
         //state purely for this component
-        const [artists, setArtists] = useState([])
     
         const changeArtist = (e) => {
             setArtist(e.target.value)
@@ -12,7 +12,8 @@ export default function AddArtist() {
         const addArtistClicked = (e) => {
             e.preventDefault()
             const artistAdded = {artist}
-            console.log(artistAdded)
+            axios.post('http://localhost:5000/artists/add', artistAdded)
+            .then(res => console.log(res.data))
             setArtist('')
         }
 

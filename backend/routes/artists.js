@@ -2,7 +2,7 @@ const router = require('express').Router()
 let Artist = require('../models/artist.model')
 
 router.route('/').get((req, res) => {
-    User.find()
+    Artist.find()
     .then(artists => res.json(artists))
     .catch(err => res.status(400).json(`error: ${err}`))
 })
