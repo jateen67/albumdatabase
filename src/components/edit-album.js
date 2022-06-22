@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 
-export default function EditAlbum() {
+export default function AddAlbum() {
     //all the state based on hte album model
     const [title, setTitle] = useState('')
     const [artist, setArtist] = useState('')
@@ -33,13 +33,26 @@ export default function EditAlbum() {
         const album = {title, artist, description, duration, date}
         axios.post('http://localhost:5000/albums/add', album)
         .then(res => console.log(res.data))
-        window.location = '/'
+        console.log(description)
+        setTitle('')
+        setArtist('')
+        setDescription('')
+        setDuration('')
     }
     useEffect(() => {
+        axios.get('http://localhost:5000/albums')
+        .then(res => {
+            setTitle(res.data.title)
+            setArtist(res.data.artist)
+            setDescription(res.data.description)
+            setDuration(res.data.duration)
+            setDate(new Date(res.data.date))
+        })
+        .catch(err => console.log(err))
+
         axios.get('http://localhost:5000/artists')
         .then(res => {
             if (res.data) {
-                setArtist(res.data[0].artist)
                 setArtists(res.data.map(artist => artist.artist))
             }
         })
