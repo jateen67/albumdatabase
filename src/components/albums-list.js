@@ -12,45 +12,16 @@ export default function AlbumsList() {
         })
     }, [])
 
-    const deleteAlbum = (id) => {
-      axios.delete(`http://localhost:5000/albums/${id}`)
-      .then(res => console.log(res.data))
-
-      setData(data.filter(album => album._id !== id))
-    }
-
     return (
         <div>
           <h3>Logged Albums</h3>
-          <table className="table">
-            <thead className="thead-light">
-              <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Description</th>
-                <th>Duration</th>
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
               {
                 data.map((album) => {
                     return (
-                        <tr key={album._id}>
-                            <td>{album.title}</td>
-                            <td>{album.artist}</td>
-                            <td>{album.description}</td>
-                            <td>{album.duration}</td>
-                            <td>{Date(album.date * 1000).substring(4, 15)}</td>
-                            <td><Link to={"/edit/"+album._id}>edit</Link></td>
-                            <td><a href='#' onClick={() => {deleteAlbum(album._id)}}>Delete</a></td>
-                        </tr>
+                            <p key={album._id}><Link to={`/view/${album._id}`}>{album.title}</Link></p>
                     )
                 })
               }
-            </tbody>
-          </table>
         </div>
       )
 }
