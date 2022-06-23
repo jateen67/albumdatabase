@@ -37,6 +37,7 @@ export default function AddAlbum() {
         setArtist('')
         setDescription('')
         setDuration('')
+        window.location = '/'
     }
     useEffect(() => {
         axios.get('http://localhost:5000/artists')
