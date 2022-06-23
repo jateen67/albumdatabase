@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export default function EditAlbum() {
     //all the state based on hte album model
@@ -12,6 +13,7 @@ export default function EditAlbum() {
     const [date, setDate] = useState(new Date())
     //state purely for this component
     const [artists, setArtists] = useState([])
+    const params = useParams()
 
     const changeTitle = (e) => {
         setTitle(e.target.value)
@@ -31,7 +33,7 @@ export default function EditAlbum() {
     const addAlbumClicked = (e) => {
         e.preventDefault()
         const album = {title, artist, description, duration, date}
-        axios.post(`http://localhost:5000/albums/update/${window.location.pathname.substring(6)}`, album)
+        axios.post(`http://localhost:5000/albums/update/${params.id}`, album)
         .then(res => console.log(res.data))
         setTitle('')
         setArtist('')
@@ -39,7 +41,7 @@ export default function EditAlbum() {
         setDuration('')
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/albums/${window.location.pathname.substring(6)}`)
+        axios.get(`http://localhost:5000/albums/${params.id}`)
         .then(res => {
             setTitle(res.data.title)
             setArtist(res.data.artist)

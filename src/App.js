@@ -5,6 +5,7 @@ import AlbumsList from './components/albums-list'
 import EditAlbum from './components/edit-album'
 import AddAlbum from './components/add-album'
 import AddArtist from './components/add-artist'
+import ViewAlbum from './components/view-album'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function App() {
