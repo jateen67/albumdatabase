@@ -14,6 +14,9 @@ export default function Navbar() {
                   <Link to={"/add"}>Add Album</Link>
                 </li>
                 <li>
+                  <Link to={"/artists"}>Artists</Link>
+                </li>
+                <li>
                   <Link to={"/artist"}>Add Artist</Link>
                 </li>
               </ul>

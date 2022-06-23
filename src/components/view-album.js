@@ -22,19 +22,6 @@ export default function AlbumsList() {
       window.location = '/'
     }
 
-    const pr = () => {
-        console.log(data.title)
-        return (
-            <tr>
-                <td>{data.title}</td>
-                <td>{data.artist}</td>
-                <td>{data.description}</td>
-                <td>{data.duration}</td>
-                <td>{Date(data.date * 1000).substring(4, 15)}</td>
-            </tr>
-        )
-    }
-
     return (
         <div>
             {
