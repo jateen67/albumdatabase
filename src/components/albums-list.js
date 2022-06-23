@@ -12,6 +12,13 @@ export default function AlbumsList() {
         })
     }, [])
 
+    const deleteAlbum = (id) => {
+      axios.delete(`http://localhost:5000/albums/${id}`)
+      .then(res => console.log(res.data))
+
+      setData(data.filter(album => album._id !== id))
+    }
+
     return (
         <div>
           <h3>Logged Albums</h3>
@@ -37,6 +44,7 @@ export default function AlbumsList() {
                             <td>{album.duration}</td>
                             <td>{Date(album.date * 1000).substring(4, 15)}</td>
                             <td><Link to={"/edit/"+album._id}>edit</Link></td>
+                            <td><a href='#' onClick={() => {deleteAlbum(album._id)}}>Delete</a></td>
                         </tr>
                     )
                 })

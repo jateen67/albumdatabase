@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 
-export default function AddAlbum() {
+export default function EditAlbum() {
     //all the state based on hte album model
     const [title, setTitle] = useState('')
     const [artist, setArtist] = useState('')
@@ -59,7 +59,7 @@ export default function AddAlbum() {
 
     return (
         <div>
-            <h3>Add New Album</h3>
+            <h3>Edit Album</h3>
             <form onSubmit={addAlbumClicked}>
                 <div className='form-group'>
                     <label>Title: </label>
@@ -88,7 +88,7 @@ export default function AddAlbum() {
                     <DatePicker className='form-control' selected={date} onChange={changeDate} required/>
                 </div>
                 <div className='form-group'>
-                    <button className='btn btn-primary' type='submit' required>Add Album</button>
+                    <button className='btn btn-primary' type='submit' required>Edit Album</button>
                 </div>
             </form>
         </div>
