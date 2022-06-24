@@ -50,15 +50,15 @@ export default function AddAlbum() {
     }, [])
 
     return (
-        <div>
-            <h3>Add New Album</h3>
+        <div className='container'>
+            <h2 className='text-light mt-3 mb-5'>Add New Album</h2>
             <form onSubmit={addAlbumClicked}>
                 <div className='form-group'>
-                    <label>Title: </label>
+                    <label className='text-light'>Title: </label>
                     <input className='form-control' value={title} onChange={changeTitle} required></input>
                 </div>
                 <div className='form-group'>
-                    <label>Artist: </label>
+                    <label className='text-light'>Artist: </label>
                     <select className='form-control' required value={artist} onChange={changeArtist}>
                         {
                             artists.map((artist) => {
@@ -68,19 +68,19 @@ export default function AddAlbum() {
                     </select>
                 </div>
                 <div className='form-group'>
-                    <label>Description: </label>
+                    <label className='text-light'>Description: </label>
                     <input className='form-control' value={description} onChange={changeDescription} required></input>
                 </div>
                 <div className='form-group'>
-                    <label>Duration: </label>
+                    <label className='text-light'>Duration: </label>
                     <input className='form-control' value={duration} onChange={changeDuration} required></input>
                 </div>
                 <div className='form-group'>
-                    <label>Date Released: </label>
+                    <label className='text-light'>Date Released: </label>
                     <DatePicker className='form-control' selected={date} onChange={changeDate} required/>
                 </div>
                 <div className='form-group'>
-                    <button className='btn btn-primary' type='submit' required>Add Album</button>
+                    <button className='btn text-light border-light border-3 mt-3' type='submit' required>Add Album</button>
                 </div>
             </form>
         </div>

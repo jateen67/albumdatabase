@@ -13,12 +13,15 @@ export default function AlbumsList() {
     }, [])
 
     return (
-        <div>
-          <h3>Logged Albums</h3>
+        <div className='container'>
+          <h2 className='text-light mt-3 mb-5'>Logged Albums</h2>
               {
                 data.map((album) => {
                     return (
-                            <p key={album._id}><Link to={`/view/${album._id}`}>{album.title}</Link></p>
+                        <div className='d-flex gap-5'>
+                            <h3 key={album._id} className='text-light'>{album.title}</h3>
+                            <Link to={`/view/${album._id}`} className='text-light'><button className='btn text-light border-light border-3'>View</button></Link>
+                        </div>
                     )
                 })
               }

@@ -56,7 +56,6 @@ export default function EditAlbum() {
                 setArtists(res.data.map(artist => artist.artist))
             }
         })
-        window.location.pathname.substring(6)
     }, [])
 
     return (

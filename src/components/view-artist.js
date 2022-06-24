@@ -17,6 +17,8 @@ export default function AlbumsList() {
     const deleteArtist = (id, artist) => {
         axios.get('http://localhost:5000/albums')
         .then(res => {
+          axios.delete(`http://localhost:5000/artists/${id}`)
+          .then(res => console.log(res.data))
             for (let i = 0; i < res.data.length; i++) {
                 if (res.data[i].artist == artist) {
                     console.log('match made')
@@ -27,6 +29,7 @@ export default function AlbumsList() {
                     setData(data.filter(artist => artist._id !== id))
                 }
             }
+            window.location = '/'
         })
       }
 
@@ -63,7 +66,6 @@ export default function AlbumsList() {
                     return (
                         <tr key={artist._id}>
                             <td>{artist.artist}</td>
-                            <td><Link to={"/edit/"+artist._id}>edit</Link></td>
                             <td><a href='#' onClick={() => {deleteArtist(artist._id, artist.artist)}}>Delete</a></td>
                         </tr>
                     )
