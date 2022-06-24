@@ -46,56 +46,38 @@ export default function AlbumsList() {
         })
       }
 
-      const p = () => {
-        console.log(albums)
-      }
-
       return (
-        <div>
-          <button onClick={p}>asa</button>
-          <table className="table">
-            <thead className="thead-light">
-              <tr>
-                <th>Artist</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div className='container'>
             {
                 data.map((artist) => {
-                  viewArtistsAlbums(artist.artist)
                     return (
-                        <tr key={artist._id}>
-                            <td>{artist.artist}</td>
-                            <td><a href='#' onClick={() => {deleteArtist(artist._id, artist.artist)}}>Delete</a></td>
-                        </tr>
+                        <h2 className='text-light mt-3 mb-5' key={artist._id}>{artist.artist}</h2>
                     )
                 })
-              }
-            </tbody>
-          </table>
-          <table className="table">
-            <thead className="thead-light">
-              <tr>
-                <th>Artist Albums</th>
-              </tr>
-            </thead>
-            <tbody>
+            }
             {
                 albums.map((album) => {
                     return (
-                        <tr key={album._id}>
-                            <td>{album.title}</td>
-                            <td>{album.artist}</td>
-                            <td>{album.description}</td>
-                            <td>{album.duration}</td>
-                            <td>{album.date}</td>
-                            <td><Link to={"/view/"+album._id}>view</Link></td>
-                        </tr>
+                      <div className='text-center'>
+                        <h3 key={album._id} className='text-light mb-3'>{album.title}</h3>
+                        <Link to={`/view/${album._id}`} className='text-light'><button className='btn text-light border-light border-4 mb-5'>View</button></Link>
+                      </div>
                     )
                 })
               }
-            </tbody>
-          </table>
+              {
+                data.map((artist) => {
+                  viewArtistsAlbums(artist.artist)
+                    return (
+                      <div className='container'>
+                        <div className='row'>
+                          <div className='col-5'></div>
+                          <button className='btn col-2 text-danger border-danger border-4' onClick={() => {deleteArtist(artist._id, artist.artist)}}>Delete Artist</button>
+                        </div>                        
+                      </div>
+                    )
+                })
+              }
         </div>
       )
 }

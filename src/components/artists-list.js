@@ -18,9 +18,9 @@ export default function AlbumsList() {
               {
                 data.map((artist) => {
                     return (
-                        <div className='d-flex gap-5 mb-3'>
-                            <h3 key={artist._id} className='text-light'>{artist.artist}</h3>
-                            <Link to={`/viewartist/${artist._id}`} className='text-light'><button className='btn text-light border-light border-3'>View</button></Link>
+                        <div className='text-center'>
+                            <h3 key={artist._id} className='text-light mb-3'>{artist.artist}</h3>
+                            <Link to={`/viewartist/${artist._id}`} className='text-light'><button className='btn text-light border-light border-4 mb-5'>View</button></Link>
                         </div>
                     )
                 })

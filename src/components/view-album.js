@@ -22,25 +22,17 @@ export default function AlbumsList() {
       window.location = '/'
     }
 
-    return (
-        <div>
+    return ( //same layout as add album
+        <div className='container'>
             {
                 data.map((album) => {
                     return (
-                        <h3 key={album._id}>{album.title}</h3>
+                        <h2 className='text-light mt-3 mb-5' key={album._id}>{album.title}</h2>
                     )
                 })
             }
           <table className="table">
             <thead className="thead-light">
-              <tr>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Description</th>
-                <th>Duration</th>
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
             </thead>
             <tbody>
             {

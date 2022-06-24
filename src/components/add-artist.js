@@ -15,6 +15,7 @@ export default function AddArtist() {
             axios.post('http://localhost:5000/artists/add', artistAdded)
             .then(res => console.log(res.data))
             setArtist('')
+            window.location = '/'
         }
 
     return (
@@ -25,12 +26,12 @@ export default function AddArtist() {
                     <div className='col-3'></div>
                     <div className='col-6'>
                         <label className='text-light'>Artist: </label>
-                        <input className='form-control' value={artist} onChange={changeArtist} required></input>
+                        <input className='form-control bg-transparent border-light border-4 text-light' value={artist} onChange={changeArtist} required></input>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-5'></div>
-                    <button className='btn col-2 text-light border-light border-3 mt-3' type='submit'>Add Artist</button>
+                    <button className='btn col-2 text-light border-light border-4 mt-3' type='submit'>Add Artist</button>
                 </div>
             </form>
         </div>
