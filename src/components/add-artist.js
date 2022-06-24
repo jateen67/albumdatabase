@@ -18,15 +18,19 @@ export default function AddArtist() {
         }
 
     return (
-        <div>
-            <h3>Add New Artist</h3>
+        <div className='container'>
+            <h2 className='text-light mt-3 mb-5'>Add New Artist</h2>
             <form onSubmit={addArtistClicked}>
-                <div className='form-group'>
-                    <label>Artist Name: </label>
-                    <input className='form-control' value={artist} onChange={changeArtist} required></input>
+                <div className='row mb-3'>
+                    <div className='col-3'></div>
+                    <div className='col-6'>
+                        <label className='text-light'>Artist: </label>
+                        <input className='form-control' value={artist} onChange={changeArtist} required></input>
+                    </div>
                 </div>
-                <div className='form-group'>
-                    <button className='btn btn-primary' type='submit'>Add Artist</button>
+                <div className='row'>
+                    <div className='col-5'></div>
+                    <button className='btn col-2 text-light border-light border-3 mt-3' type='submit'>Add Artist</button>
                 </div>
             </form>
         </div>

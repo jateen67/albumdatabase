@@ -53,11 +53,12 @@ export default function AddAlbum() {
         <div className='container'>
             <h2 className='text-light mt-3 mb-5'>Add New Album</h2>
             <form onSubmit={addAlbumClicked}>
-                <div className='form-group'>
+            <div className='row mb-3'>
+                <div className='col'>
                     <label className='text-light'>Title: </label>
                     <input className='form-control' value={title} onChange={changeTitle} required></input>
                 </div>
-                <div className='form-group'>
+                <div className='col'>
                     <label className='text-light'>Artist: </label>
                     <select className='form-control' required value={artist} onChange={changeArtist}>
                         {
@@ -67,22 +68,30 @@ export default function AddAlbum() {
                         }
                     </select>
                 </div>
-                <div className='form-group'>
-                    <label className='text-light'>Description: </label>
-                    <input className='form-control' value={description} onChange={changeDescription} required></input>
-                </div>
-                <div className='form-group'>
+            </div>
+            <div className='row mb-3'>
+                <div className='col'>
                     <label className='text-light'>Duration: </label>
                     <input className='form-control' value={duration} onChange={changeDuration} required></input>
                 </div>
-                <div className='form-group'>
+                <div className='col'>
                     <label className='text-light'>Date Released: </label>
                     <DatePicker className='form-control' selected={date} onChange={changeDate} required/>
                 </div>
-                <div className='form-group'>
-                    <button className='btn text-light border-light border-3 mt-3' type='submit' required>Add Album</button>
+            </div>
+            <div className='row mb-3'>
+                <div className='col-3'></div>
+                <div className='col-6'>
+                    <label className='text-light'>Description: </label>
+                    <textarea className='form-control' value={description} onChange={changeDescription} rows='5' required></textarea>
                 </div>
+            </div>
+            <div className='row'>
+                <div className='col-5'></div>
+                    <button className='btn col-2 text-light border-light border-3 mt-3' type='submit' required>Add Album</button>
+            </div>
             </form>
+
         </div>
     )
 }

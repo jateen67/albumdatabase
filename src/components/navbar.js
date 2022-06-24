@@ -23,11 +23,6 @@ export default function Navbar() {
                 </ul>
               </div>
             </nav>
-            <div className='container border border-white mt-3'>
-              <h2 className='text-center text-light mt-3'>Welcome to the music album database. </h2>
-              <h6 className='text-center text-light mt-5'>This application allows the user to keep track of music artists and albums. </h6>
-              <h6 className='text-center text-light mb-3'>Use the navigation bar at the top to move around the site.</h6>
-            </div>
           </div>
         )
 }
