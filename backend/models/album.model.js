@@ -5,18 +5,21 @@ const albumSchema = new Schema({
     title: {
         type: String,
         required: true,
+        minlength: 1
     },
     artist: {
         type: String,
         required: true,
+        minlength: 2
     },
     description: {
         type: String,
         required: true,
+        minlength: 1
     },
     duration: {
         type: String,
-        required: true,
+        required: true
     },
     date: {
         type: String,

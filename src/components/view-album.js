@@ -60,8 +60,9 @@ export default function AlbumsList() {
                             </div>
                             <div className='row mb-5'>
                                 <div className='col-2'></div>
-                                <div className='col-6'>
-                                    <h3 className='text-light' key={album._id}>Description: {album.description}</h3>
+                                <div className='col-8'>
+                                    <h2 className='text-light' key={album._id}>Description:</h2>
+                                    <h3 className='text-light'>{album.description}</h3>
                                 </div>
                             </div>
                             <div className='row'>

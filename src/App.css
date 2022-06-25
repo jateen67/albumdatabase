@@ -5,3 +5,7 @@ body {
 .d-flex {
     align-items: center !important;
 }
+
+option {
+    background-color: #343a40;
+}

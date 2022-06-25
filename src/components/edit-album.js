@@ -39,7 +39,7 @@ export default function EditAlbum() {
         setArtist('')
         setDescription('')
         setDuration('')
-        window.location = '/'
+        window.location = `/view/${params.id}`
     }
     useEffect(() => {
         axios.get(`http://localhost:5000/albums/${params.id}`)
@@ -66,11 +66,11 @@ export default function EditAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Title: </label>
-                    <input className='form-control' value={title} onChange={changeTitle} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={title} onChange={changeTitle} required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Artist: </label>
-                    <select className='form-control' required value={artist} onChange={changeArtist}>
+                    <select className='form-control bg-transparent border-light border-4 text-light' required value={artist} onChange={changeArtist}>
                         {
                             artists.map((artist) => {
                                 return <option key={artist} value={artist}>{artist}</option>
@@ -82,23 +82,22 @@ export default function EditAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control' value={duration} onChange={changeDuration} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} maxLength='5' required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
-                    <DatePicker className='form-control' selected={date} onChange={changeDate} required/>
+                    <DatePicker className='form-control bg-transparent border-light border-4 text-light' selected={date} onChange={changeDate} required/>
                 </div>
             </div>
             <div className='row mb-3'>
                 <div className='col-3'></div>
                 <div className='col-6'>
                     <label className='text-light'>Description: </label>
-                    <textarea className='form-control' value={description} onChange={changeDescription} rows='5' required></textarea>
+                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={description} onChange={changeDescription} rows='5' required></textarea>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-5'></div>
-                    <button className='btn col-2 text-light border-light border-4 mt-3' type='submit' required>Apply Changes</button>
+            <div className='text-center'>
+                    <button className='btn text-light border-light border-4 mt-3' type='submit' required>Apply Changes</button>
             </div>
             </form>
         </div>

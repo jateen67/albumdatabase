@@ -32,12 +32,13 @@ export default function AddAlbum() {
         e.preventDefault()
         const album = {title, artist, description, duration, date}
         axios.post('http://localhost:5000/albums/add', album)
-        .then(res => console.log(res.data))
+        .then(res => {
+            window.location = '/'
+        })
         setTitle('')
         setArtist('')
         setDescription('')
         setDuration('')
-        window.location = '/'
     }
     useEffect(() => {
         axios.get('http://localhost:5000/artists')
@@ -72,7 +73,7 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} type='text' maxLength='5' required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
