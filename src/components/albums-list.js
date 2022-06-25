@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom' 
 import axios from 'axios'
 
@@ -19,17 +19,20 @@ export default function AlbumsList() {
               <h6 className='text-center text-light mt-5'>This application allows the user to keep track of music artists and albums. </h6>
               <h6 className='text-center text-light mb-3'>Use the navigation bar at the top to move around the site.</h6>
             </div>
-          <h2 className='text-light mt-3 mb-5'>Logged Albums</h2>
-              {
-                data.map((album) => {
-                    return (
-                        <div className='text-center'>
-                            <h3 key={album._id} className='text-light mb-3'>{album.artist} - {album.title}</h3>
-                            <Link to={`/view/${album._id}`} className='text-light'><button className='btn text-light border-light border-4 mb-5'>View</button></Link>
-                        </div>
-                    )
-                })
-              }
+            <h2 className='text-light mt-3 mb-5'>Logged Albums</h2>
+                {
+                    data.map((album) => {
+                        return (
+                            <div className='text-center'>
+                                <h3 key={album._id} className='text-light mb-3'>{album.artist} - {album.title}</h3>
+                                <Link to={`/view/${album._id}`} className='text-light'><button className='btn text-light border-light border-4 mb-5'>View</button></Link>
+                            </div>
+                        )
+                    })
+                }
+            <footer>
+                <h6 className='text-light text-center'>&copy; Jatin Kalsi 2022</h6>
+            </footer>
         </div>
       )
 }

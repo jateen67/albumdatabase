@@ -8,6 +8,7 @@ import AddArtist from './components/add-artist'
 import ViewAlbum from './components/view-album'
 import ArtistsList from './components/artists-list'
 import ViewArtist from './components/view-artist'
+import Footer from './components/footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect } from 'react';
 
