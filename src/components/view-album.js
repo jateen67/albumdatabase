@@ -31,27 +31,52 @@ export default function AlbumsList() {
                     )
                 })
             }
-          <table className="table">
-            <thead className="thead-light">
-            </thead>
-            <tbody>
+            
             {
                 data.map((album) => {
                     return (
-                        <tr key={album._id}>
-                            <td>{album.title}</td>
-                            <td>{album.artist}</td>
-                            <td>{album.description}</td>
-                            <td>{album.duration}</td>
-                            <td>{Date(album.date * 1000).substring(4, 15)}</td>
-                            <td><Link to={"/edit/"+album._id}>edit</Link></td>
-                            <td><a href='#' onClick={() => {deleteAlbum(album._id)}}>Delete</a></td>
-                        </tr>
+                        <div className='container'>
+                            <div className='row mb-5'>
+                                <div className='col-2'></div>
+                                <div className='col'>
+                                    <h2 className='text-light mb-3' key={album._id}>Title:</h2>
+                                    <h3 className='text-light'>{album.title}</h3>
+                                </div>
+                                <div className='col'>
+                                    <h2 className='text-light' key={album._id}>Artist:</h2>
+                                    <h3 className='text-light'>{album.artist}</h3>
+                                </div>
+                            </div>
+                            <div className='row mb-5'>
+                                <div className='col-2'></div>
+                                <div className='col'>
+                                    <h2 className='text-light' key={album._id}>Duration:</h2>
+                                    <h3 className='text-light'>{album.duration} minutes</h3>
+                                </div>
+                                <div className='col'>
+                                    <h2 className='text-light' key={album._id}>Date Released:</h2>
+                                    <h3 className='text-light'>{Date(album.date * 1000).substring(4, 15)}</h3>
+                                </div>
+                            </div>
+                            <div className='row mb-5'>
+                                <div className='col-2'></div>
+                                <div className='col-6'>
+                                    <h3 className='text-light' key={album._id}>Description: {album.description}</h3>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-5'></div>
+                                <div className='col-1'>
+                                    <Link to={`/edit/${album._id}`} className='text-light'><button className='btn text-light border-light border-4'>Edit</button></Link>
+                                </div>
+                                <div className='col-2'>
+                                    <Link to={'/'} className='text-light'><button className='btn text-danger border-danger border-4' onClick={() => {deleteAlbum(album._id)}}>Delete Album</button></Link>
+                                </div>
+                            </div>
+                        </div>
                     )
                 })
               }
-            </tbody>
-          </table>
         </div>
       )
 }

@@ -86,9 +86,8 @@ export default function AddAlbum() {
                     <textarea className='form-control bg-transparent border-light border-4 text-light' value={description} onChange={changeDescription} rows='5' required></textarea>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-5'></div>
-                    <button className='btn col-2 text-light border-light border-4 mt-3' type='submit' required>Add Album</button>
+            <div className='text-center'>
+                    <button className='btn text-light border-light border-4 mt-3' type='submit' required>Add Album</button>
             </div>
             </form>
         </div>

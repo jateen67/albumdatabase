@@ -69,12 +69,9 @@ export default function AlbumsList() {
                 data.map((artist) => {
                   viewArtistsAlbums(artist.artist)
                     return (
-                      <div className='container'>
-                        <div className='row'>
-                          <div className='col-5'></div>
-                          <button className='btn col-2 text-danger border-danger border-4' onClick={() => {deleteArtist(artist._id, artist.artist)}}>Delete Artist</button>
+                        <div className='text-center'>
+                          <button className='btn text-danger border-danger border-4' onClick={() => {deleteArtist(artist._id, artist.artist)}}>Delete Artist</button>
                         </div>                        
-                      </div>
                     )
                 })
               }

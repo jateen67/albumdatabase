@@ -9,8 +9,12 @@ import ViewAlbum from './components/view-album'
 import ArtistsList from './components/artists-list'
 import ViewArtist from './components/view-artist'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useEffect } from 'react';
 
 export default function App() {
+  useEffect(() => {
+    document.title = 'Albumize'
+  })
   return (
     <div className='container'>
         <Navbar/>
