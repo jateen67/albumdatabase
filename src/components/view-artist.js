@@ -29,7 +29,7 @@ export default function AlbumsList() {
                     setData(data.filter(artist => artist._id !== id))
                 }
             }
-            window.location = '/'
+            window.location = '/artists'
         })
       }
 

@@ -73,7 +73,7 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} maxLength='5' required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
