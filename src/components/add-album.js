@@ -5,11 +5,11 @@ import axios from 'axios'
 
 export default function AddAlbum() {
     //all the state based on hte album model
-    const [title, setTitle] = useState('')
-    const [artist, setArtist] = useState('')
-    const [description, setDescription] = useState('')
-    const [duration, setDuration] = useState(0)
-    const [date, setDate] = useState(new Date())
+    const [album_title, setTitle] = useState('')
+    const [album_artist, setArtist] = useState('')
+    const [album_description, setDescription] = useState('')
+    const [album_duration, setDuration] = useState('')
+    const [album_date, setDate] = useState(new Date())
     //state purely for this component
     const [artists, setArtists] = useState([])
 
@@ -30,22 +30,18 @@ export default function AddAlbum() {
     }
     const addAlbumClicked = (e) => {
         e.preventDefault()
-        const album = {title, artist, description, duration, date}
-        axios.post('http://localhost:5000/albums/add', album)
+        const album = {album_title, album_artist, album_description, album_duration, album_date}
+        axios.post('http://localhost:5000/albums/', album)
         .then(res => {
             window.location = '/'
         })
-        setTitle('')
-        setArtist('')
-        setDescription('')
-        setDuration('')
     }
     useEffect(() => {
         axios.get('http://localhost:5000/artists')
         .then(res => {
             if (res.data) {
-                setArtist(res.data[0].artist)
-                setArtists(res.data.map(artist => artist.artist))
+                setArtist(res.data[0].artist_name)
+                setArtists(res.data.map(artist => artist.artist_name))
             }
         })
     }, [])
@@ -57,11 +53,11 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Title: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={title} onChange={changeTitle} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_title} onChange={changeTitle} required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Artist: </label>
-                    <select className='form-control bg-transparent border-light border-4 text-light' required value={artist} onChange={changeArtist}>
+                    <select className='form-control bg-transparent border-light border-4 text-light' required value={album_artist} onChange={changeArtist}>
                         {
                             artists.map((artist) => {
                                 return <option key={artist} value={artist}>{artist}</option>
@@ -73,18 +69,18 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_duration} onChange={changeDuration} required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
-                    <DatePicker className='form-control bg-transparent border-light border-4 text-light' selected={date} onChange={changeDate} required/>
+                    <DatePicker className='form-control bg-transparent border-light border-4 text-light' selected={album_date} onChange={changeDate} required/>
                 </div>
             </div>
             <div className='row mb-3'>
                 <div className='col-3'></div>
                 <div className='col-6'>
                     <label className='text-light'>Description: </label>
-                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={description} onChange={changeDescription} rows='5' required></textarea>
+                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={album_description} onChange={changeDescription} rows='5' required></textarea>
                 </div>
             </div>
             <div className='text-center'>

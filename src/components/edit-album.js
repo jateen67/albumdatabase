@@ -6,11 +6,11 @@ import { useParams } from 'react-router-dom'
 
 export default function EditAlbum() {
     //all the state based on hte album model
-    const [title, setTitle] = useState('')
-    const [artist, setArtist] = useState('')
-    const [description, setDescription] = useState('')
-    const [duration, setDuration] = useState(0)
-    const [date, setDate] = useState(new Date())
+    const [album_title, setTitle] = useState('')
+    const [album_artist, setArtist] = useState('')
+    const [album_description, setDescription] = useState('')
+    const [album_duration, setDuration] = useState(0)
+    const [album_date, setDate] = useState(new Date())
     //state purely for this component
     const [artists, setArtists] = useState([])
     const params = useParams()
@@ -32,8 +32,8 @@ export default function EditAlbum() {
     }
     const addAlbumClicked = (e) => {
         e.preventDefault()
-        const album = {title, artist, description, duration, date}
-        axios.post(`http://localhost:5000/albums/update/${params.id}`, album)
+        const album = {album_title, album_artist, album_description, album_duration, album_date}
+        axios.put(`http://localhost:5000/albums/${params.id}`, album)
         .then(res => console.log(res.data))
         setTitle('')
         setArtist('')
@@ -44,17 +44,17 @@ export default function EditAlbum() {
     useEffect(() => {
         axios.get(`http://localhost:5000/albums/${params.id}`)
         .then(res => {
-            setTitle(res.data.title)
-            setArtist(res.data.artist)
-            setDescription(res.data.description)
-            setDuration(res.data.duration)
+            setTitle(res.data.album_title)
+            setArtist(res.data.album_artist)
+            setDescription(res.data.album_description)
+            setDuration(res.data.album_duration)
         })
         .catch(err => console.log(err))
 
         axios.get('http://localhost:5000/artists')
         .then(res => {
             if (res.data) {
-                setArtists(res.data.map(artist => artist.artist))
+                setArtists(res.data.map(artist => artist.artist_name))
             }
         })
     }, [])
@@ -66,11 +66,11 @@ export default function EditAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Title: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={title} onChange={changeTitle} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_title} onChange={changeTitle} required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Artist: </label>
-                    <select className='form-control bg-transparent border-light border-4 text-light' required value={artist} onChange={changeArtist}>
+                    <select className='form-control bg-transparent border-light border-4 text-light' required value={album_artist} onChange={changeArtist}>
                         {
                             artists.map((artist) => {
                                 return <option key={artist} value={artist}>{artist}</option>
@@ -82,18 +82,18 @@ export default function EditAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={duration} onChange={changeDuration} maxLength='5' required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_duration} onChange={changeDuration} maxLength='5' required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
-                    <DatePicker className='form-control bg-transparent border-light border-4 text-light' selected={date} onChange={changeDate} required/>
+                    <DatePicker className='form-control bg-transparent border-light border-4 text-light' selected={album_date} onChange={changeDate} required/>
                 </div>
             </div>
             <div className='row mb-3'>
                 <div className='col-3'></div>
                 <div className='col-6'>
                     <label className='text-light'>Description: </label>
-                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={description} onChange={changeDescription} rows='5' required></textarea>
+                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={album_description} onChange={changeDescription} rows='5' required></textarea>
                 </div>
             </div>
             <div className='text-center'>
