@@ -20,11 +20,11 @@ export default function App() {
         <Navbar/>
         <Routes>
           <Route path='/' element={<AlbumsList/>}/>
-          <Route path='/edit/:id' element={<EditAlbum/>}/>
-          <Route path='/view/:id' element={<ViewAlbum/>}/>
+          <Route path='/editalbum/:id' element={<EditAlbum/>}/>
+          <Route path='/viewalbum/:id' element={<ViewAlbum/>}/>
           <Route path='/viewartist/:id' element={<ViewArtist/>}/>
-          <Route path='/add' element={<AddAlbum/>}/>
-          <Route path='/artist' element={<AddArtist/>}/>
+          <Route path='/addalbum' element={<AddAlbum/>}/>
+          <Route path='/addartist' element={<AddArtist/>}/>
           <Route path='/artists' element={<ArtistsList/>}/>
         </Routes>
     </div>

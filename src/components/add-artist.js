@@ -15,8 +15,8 @@ export default function AddArtist() {
             axios.post('http://localhost:5000/artists/', artistAdded)
             .then(res => {
                 console.log(res.data)
-                window.location = '/'
             })
+            window.location = '/artists'
         }
 
     return (

@@ -39,7 +39,7 @@ export default function EditAlbum() {
         setArtist('')
         setDescription('')
         setDuration('')
-        window.location = `/view/${params.id}`
+        window.location = `/viewalbum/${params.id}`
     }
     useEffect(() => {
         axios.get(`http://localhost:5000/albums/${params.id}`)

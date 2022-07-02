@@ -16,7 +16,6 @@ export default function AlbumsList() {
     const deleteAlbum = (id) => {
       axios.delete(`http://localhost:5000/albums/${id}`)
       .then(res => console.log('deleted album'))
-      window.location = '/'
     }
 
     return ( //same layout as add album
@@ -64,7 +63,7 @@ export default function AlbumsList() {
                             <div className='row'>
                                 <div className='col-5'></div>
                                 <div className='col-1'>
-                                    <Link to={`/edit/${album.album_id}`} className='text-light'><button className='btn text-light border-light border-4'>Edit</button></Link>
+                                    <Link to={`/editalbum/${album.album_id}`} className='text-light'><button className='btn text-light border-light border-4'>Edit</button></Link>
                                 </div>
                                 <div className='col-2'>
                                     <Link to={'/'} className='text-light'><button className='btn text-danger border-danger border-4' onClick={() => {deleteAlbum(album.album_id)}}>Delete Album</button></Link>

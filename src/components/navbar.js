@@ -12,13 +12,13 @@ export default function Navbar() {
                     <Link to={"/"} className='nav-link'>Albums</Link>
                   </li>
                   <li className='nav-item'>
-                    <Link to={"/add"} className='nav-link'>Add Album</Link>
+                    <Link to={"/addalbum"} className='nav-link'>Add Album</Link>
                   </li>
                   <li className='nav-item'>
                     <Link to={"/artists"} className='nav-link'>Artists</Link>
                   </li>
                   <li className='nav-item'>
-                    <Link to={"/artist"} className='nav-link'>Add Artist</Link>
+                    <Link to={"/addartist"} className='nav-link'>Add Artist</Link>
                   </li>
                 </ul>
               </div>
