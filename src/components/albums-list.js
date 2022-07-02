@@ -30,9 +30,6 @@ export default function AlbumsList() {
                         )
                     })
                 }
-            <footer>
-                <h6 className='text-light text-center'>&copy; Jatin Kalsi 2022</h6>
-            </footer>
         </div>
       )
 }

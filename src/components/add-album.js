@@ -54,7 +54,7 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Title: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_title} onChange={changeTitle} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_title} onChange={changeTitle} maxLength='40' required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Artist: </label>
@@ -70,7 +70,7 @@ export default function AddAlbum() {
             <div className='row mb-3'>
                 <div className='col'>
                     <label className='text-light'>Duration: </label>
-                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_duration} onChange={changeDuration} required></input>
+                    <input className='form-control bg-transparent border-light border-4 text-light' value={album_duration} onChange={changeDuration} maxLength='5' required></input>
                 </div>
                 <div className='col'>
                     <label className='text-light'>Date Released: </label>
@@ -81,7 +81,7 @@ export default function AddAlbum() {
                 <div className='col-3'></div>
                 <div className='col-6'>
                     <label className='text-light'>Description: </label>
-                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={album_description} onChange={changeDescription} rows='5' required></textarea>
+                    <textarea className='form-control bg-transparent border-light border-4 text-light' value={album_description} onChange={changeDescription} rows='5' maxLength='250' required></textarea>
                 </div>
             </div>
             <div className='text-center'>
