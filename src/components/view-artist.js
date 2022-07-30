@@ -8,21 +8,21 @@ export default function AlbumsList() {
     const params = useParams()
 
     useEffect(() => {
-        axios.get(`/artists/${params.id}`)
+        axios.get(`http://localhost:5000/artists/${params.id}`)
         .then(res => {
             setData(old => [...old, res.data])
         })
     }, [])
 
     const deleteArtist = (artist_id, artist_name) => {
-      axios.delete(`/artists/${artist_id}`)
+      axios.delete(`http://localhost:5000/artists/${artist_id}`)
       .then(res => console.log('deleted artist'))
 
-      axios.get('/albums')
+      axios.get('http://localhost:5000/albums')
       .then(res => {
         for (let i = 0; i < res.data.length; i++) {
           if (res.data[i].album_artist == artist_name) {
-            axios.delete(`/albums/${res.data[i].album_id}`)
+            axios.delete(`http://localhost:5000/albums/${res.data[i].album_id}`)
             .then(res => console.log('deleted album after deleting artist'))
           }
         }
@@ -32,7 +32,7 @@ export default function AlbumsList() {
 
     const viewArtistsAlbums = (name) => {
       let matches = []
-      axios.get('/albums')
+      axios.get('http://localhost:5000/albums')
       .then(res => {
         for (let i = 0; i < res.data.length; i++) {
           if (res.data[i].album_artist == name) {

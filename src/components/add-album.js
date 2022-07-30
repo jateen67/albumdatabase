@@ -31,14 +31,14 @@ export default function AddAlbum() {
     const addAlbumClicked = (e) => {
         e.preventDefault()
         const album = {album_title, album_artist, album_description, album_duration, album_date}
-        axios.post('/albums/', album)
+        axios.post('http://localhost:5000/albums/', album)
         .then(res => {
             console.log('album added')
         })
         window.location = '/'
     }
     useEffect(() => {
-        axios.get('/artists')
+        axios.get('http://localhost:5000/artists')
         .then(res => {
             if (res.data) {
                 setArtist(res.data[0].artist_name)

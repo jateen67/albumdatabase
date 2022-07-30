@@ -6,7 +6,7 @@ export default function AlbumsList() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get('/artists')
+        axios.get('http://localhost:5000/artists')
         .then(res => {
             setData(res.data)
         })

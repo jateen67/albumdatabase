@@ -7,14 +7,14 @@ export default function AlbumsList() {
     const params = useParams()
 
     useEffect(() => {
-        axios.get(`/albums/${params.id}`)
+        axios.get(`http://localhost:5000/albums/${params.id}`)
         .then(res => {
             setData(old => [...old, res.data])
         })
     }, [])
 
     const deleteAlbum = (id) => {
-      axios.delete(`/albums/${id}`)
+      axios.delete(`http://localhost:5000/albums/${id}`)
       .then(res => console.log('deleted album'))
       window.location = '/'
     }

@@ -12,7 +12,7 @@ export default function AddArtist() {
         const addArtistClicked = async (e) => {
             e.preventDefault()
             const artistAdded = {artist_name}
-            axios.post('/artists/', artistAdded)
+            axios.post('http://localhost:5000/artists/', artistAdded)
             .then(res => {
                 console.log(res.data)
             })

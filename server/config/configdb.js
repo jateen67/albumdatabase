@@ -1,7 +1,6 @@
 const {Sequelize} = require('sequelize')
-require('dotenv').config()
 
-module.exports = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, process.env.PG_PASSWORD, {
-    host: process.env.PG_HOST,
+module.exports = new Sequelize('albumdb', 'postgres', 'hash', {
+    host: 'localhost',
     dialect: 'postgres'
 });
