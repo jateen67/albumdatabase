@@ -33,7 +33,7 @@ export default function EditAlbum() {
     const addAlbumClicked = (e) => {
         e.preventDefault()
         const album = {album_title, album_artist, album_description, album_duration, album_date}
-        axios.put(`http://localhost:5000/albums/${params.id}`, album)
+        axios.put(`/albums/${params.id}`, album)
         .then(res => console.log(res.data))
         setTitle('')
         setArtist('')
@@ -42,7 +42,7 @@ export default function EditAlbum() {
         window.location = `/viewalbum/${params.id}`
     }
     useEffect(() => {
-        axios.get(`http://localhost:5000/albums/${params.id}`)
+        axios.get(`/albums/${params.id}`)
         .then(res => {
             setTitle(res.data.album_title)
             setArtist(res.data.album_artist)
@@ -51,7 +51,7 @@ export default function EditAlbum() {
         })
         .catch(err => console.log(err))
 
-        axios.get('http://localhost:5000/artists')
+        axios.get('/artists')
         .then(res => {
             if (res.data) {
                 setArtists(res.data.map(artist => artist.artist_name))
